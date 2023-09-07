@@ -1,5 +1,5 @@
 class Source {
-  String? id;
+  int? id;
   String? name;
   String? baseUrl;
   String? lang;
@@ -33,23 +33,23 @@ class Source {
     this.appMinVerReq = "0.0.21",
   });
 
-  Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'id': id ?? 'mynovelreader-$lang.$name'.hashCode,
-      'baseUrl': baseUrl,
-      "lang": lang,
-      "typeSource": typeSource,
-      "iconUrl": iconUrl,
-      "dateFormat": dateFormat,
-      "dateFormatLocale": dateFormatLocale,
-      "isNsfw": isNsfw,
-      "hasCloudflare": hasCloudflare,
-      "sourceCodeUrl": sourceCodeUrl,
-      "apiUrl": apiUrl,
-      "version": version,
-      "isFullData": isFullData,
-      "appMinVerReq": appMinVerReq
-    };
+  factory Source.fromJson(Map<String, dynamic> json) {
+    return Source(
+        name: json["name"],
+        id: json["id"] ??
+            'mynovelreader-${json["lang"]}.${json["name"]}'.hashCode,
+        baseUrl: json["baseUrl"],
+        lang: json["lang"],
+        typeSource: json["typeSource"],
+        iconUrl: json["iconUrl"],
+        dateFormat: json["dateFormat"],
+        dateFormatLocale: json["dateFormatLocale"],
+        isNsfw: json["isNsfw"],
+        hasCloudflare: json["hasCloudflare"],
+        sourceCodeUrl: json["sourceCodeUrl"],
+        apiUrl: json["apiUrl"],
+        version: json["version"],
+        isFullData: json["isFullData"],
+        appMinVerReq: json["appMinVerReq"]);
   }
 }

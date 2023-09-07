@@ -1,0 +1,36 @@
+[
+  {
+    "name": "BoxNovel",
+    "id": 966932111,
+    "baseUrl": "https://boxnovel.com",
+    "lang": "tr",
+    "typeSource": "madara",
+    "iconUrl": "https://raw.githubusercontent.com/kodjodevf/mangayomi-extensions/main/icon/mangayomi-tr-araznovel.png",
+    "dateFormat": "d MMMM yyyy",
+    "dateFormatLocale": "en",
+    "isNsfw": false,
+    "hasCloudflare": false,
+    "sourceCodeUrl": "https://raw.githubusercontent.com/kodjodevf/mangayomi-extensions/main/manga/multisrc/madara/madara-v0.0.13.dart",
+    "apiUrl": "",
+    "version": "0.0.13",
+    "isFullData": false,
+    "appMinVerReq": "0.0.21"
+  },
+  {
+    "name": "BestManga",
+    "id": 926276360,
+    "baseUrl": "https://bestmanga.club",
+    "lang": "ru",
+    "typeSource": "madara",
+    "iconUrl": "https://raw.githubusercontent.com/kodjodevf/mangayomi-extensions/main/icon/mangayomi-ru-bestmanga.png",
+    "dateFormat": "dd.MM.yyyy",
+    "dateFormatLocale": "ru",
+    "isNsfw": false,
+    "hasCloudflare": false,
+    "sourceCodeUrl": "https://raw.githubusercontent.com/kodjodevf/mangayomi-extensions/main/manga/multisrc/madara/madara-v0.0.13.dart",
+    "apiUrl": "",
+    "version": "0.0.13",
+    "isFullData": false,
+    "appMinVerReq": "0.0.21"
+  }
+]
