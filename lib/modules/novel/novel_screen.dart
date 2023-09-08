@@ -17,10 +17,33 @@ class NovelScreen extends StatefulWidget {
 }
 
 class _NovelScreenState extends State<NovelScreen> {
+  List _novels = [];
+
   @override
   void initState() {
     super.initState();
-    getPopularNovel(widget.source.baseUrl!, 1);
+    getNovels();
+  }
+
+  getNovels() async {
+    var novels = await getPopularNovel(widget.source.baseUrl!, 1);
+    setState(() {
+      _novels = novels;
+    });
+  }
+
+  Widget novelItemRender(novel) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(flex: 2, child: Image.network(novel["image"])),
+          Expanded(flex: 3, child: Text(novel["name"]))
+        ],
+      ),
+    );
   }
 
   @override
@@ -35,6 +58,13 @@ class _NovelScreenState extends State<NovelScreen> {
           },
         ),
       ),
+      body: _novels.isEmpty
+          ? const Center(child: Text("Nothing to show"))
+          : ListView(
+              children: _novels.map((novel) {
+                return novelItemRender(novel);
+              }).toList(),
+            ),
     );
   }
 }
