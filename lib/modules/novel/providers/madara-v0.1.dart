@@ -133,3 +133,15 @@ getNovelDetail(NovelUrlInfo novelUrlInfo) async {
     print(e.toString());
   }
 }
+
+getChapterUrl(ChapterUrlInfo chapter) async {
+  try {
+    final url = chapter.url;
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      print(response.body);
+    }
+  } catch (e) {
+    print(e.toString());
+  }
+}
