@@ -1,7 +1,9 @@
 import 'package:go_router/go_router.dart';
+import 'package:my_novel_reader_crawl/models/novel.dart';
 
 import 'package:my_novel_reader_crawl/models/source.dart';
 import 'package:my_novel_reader_crawl/modules/home/home_screen.dart';
+import 'package:my_novel_reader_crawl/modules/novel/novel_detail_screen.dart';
 import 'package:my_novel_reader_crawl/modules/novel/novel_screen.dart';
 
 GoRouter router() {
@@ -20,7 +22,11 @@ GoRouter router() {
             source: source,
           );
         },
-      )
+      ),
+      GoRoute(path: '/novel_detail', builder: (context, state) {
+        final novelUrlInfo = state.extra as NovelUrlInfo;
+        return NovelDetailScreen(novelUrlInfo: novelUrlInfo);
+      },)
     ],
   );
 }
