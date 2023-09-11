@@ -12,6 +12,8 @@ class ChapterDetailScreen extends StatefulWidget {
 }
 
 class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
+  List _contents = [];
+
   @override
   void initState() {
     super.initState();
@@ -20,6 +22,9 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
 
   getChapterData() async {
     var chapter = await getChapterUrl(widget.chapterUrlInfo);
+    setState(() {
+      _contents = chapter as List;
+    });
   }
 
   @override
@@ -30,6 +35,16 @@ class _ChapterDetailScreenState extends State<ChapterDetailScreen> {
           widget.chapterUrlInfo.name,
           maxLines: 1,
           style: const TextStyle(fontSize: 20),
+        ),
+      ),
+      body: Container(
+        margin: EdgeInsets.all(10),
+        child: SingleChildScrollView(
+          child: Column(
+            children: _contents.map((e) {
+              return Text(e);
+            }).toList(),
+          ),
         ),
       ),
     );

@@ -139,7 +139,12 @@ getChapterUrl(ChapterUrlInfo chapter) async {
     final url = chapter.url;
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      print(response.body);
+      var html = parse(response.body).documentElement!;
+      var values = html.querySelectorAll(".text-left p");
+      var contents = (values as List).map((content) {
+        return content.text;
+      }).toList();
+      return contents;
     }
   } catch (e) {
     print(e.toString());
